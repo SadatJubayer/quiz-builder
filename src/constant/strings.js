@@ -5,4 +5,7 @@ export const strings = {
     your_quizzes: 'Your Quizzes',
     create_new: 'Create new',
     your_have_no_quiz: 'You don’t have any Quiz!',
+    published: 'Published',
+    draft: 'Draft',
+    questions: 'questions',
 };

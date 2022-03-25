@@ -2,19 +2,13 @@ import { QuizListCard } from 'components';
 import { LinkButton } from 'components/link-button/LinkButton';
 import { appRoutes } from 'constant';
 import { strings } from 'constant/strings';
+import { IQuiz } from 'types/IQuiz';
 
-const dummyList = [
-    {
-        id: 'aewrc',
-        title: 'JavaScript Test',
-    },
-    {
-        id: 'aewrcerwe',
-        title: 'Python Test',
-    },
-];
+interface IQuizListProps {
+    quizzes: IQuiz[];
+}
 
-export const QuizList = () => {
+export const QuizList = ({ quizzes }: IQuizListProps) => {
     return (
         <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between">
@@ -22,8 +16,8 @@ export const QuizList = () => {
                 <LinkButton text={strings.create_new} to={appRoutes.CREATE_QUIZ} />
             </div>
             <div className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-8">
-                {dummyList.map((quiz) => (
-                    <QuizListCard key={quiz.id} />
+                {quizzes.map((quiz) => (
+                    <QuizListCard key={quiz.id} quiz={quiz} />
                 ))}
             </div>
         </div>
