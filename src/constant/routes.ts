@@ -1,4 +1,4 @@
-export const appRoutes = Object.freeze({
+export const appRoutes = {
     /* Admin routes */
     ADMIN_DASHBOARD: '/',
     CREATE_QUIZ: '/new',
@@ -8,4 +8,4 @@ export const appRoutes = Object.freeze({
     USER_HOME: '/user',
     VIEW_QUIZ: '/view',
     RESULT: '/result',
-});
+};

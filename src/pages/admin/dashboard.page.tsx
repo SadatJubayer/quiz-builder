@@ -1,5 +1,12 @@
+import { Layout, QuizList } from 'components';
+
 const DashboardPage = () => {
-    return <div>DashboardPage</div>;
+    return (
+        <Layout>
+            {/* <EmptyList /> */}
+            <QuizList />
+        </Layout>
+    );
 };
 
 export default DashboardPage;
