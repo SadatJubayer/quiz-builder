@@ -2,6 +2,7 @@ import { ChoiceCard } from 'components/choice-card/ChoiceCard';
 import { strings } from 'constant/strings';
 import { useQuestion } from 'hooks';
 import { useQuizAdd } from 'hooks/useQuizAdd';
+import { useEffect, useRef } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { IQuestion } from 'types/IQuestion';
 
@@ -13,6 +14,8 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
     const { addAChoice } = useQuizAdd();
     const { updateQuestionTitle } = useQuestion();
 
+    const ulRef = useRef<HTMLUListElement>(null);
+
     const onTitleChange = (title: string) => {
         updateQuestionTitle(title);
     };
@@ -20,6 +23,16 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
     const onNewChoice = () => {
         addAChoice();
     };
+
+    /* Adding focus on choice while adding */
+    const lastQuestionIndex = question.choices[question.choices.length - 1];
+    useEffect(() => {
+        const addedChoice = ulRef.current?.lastElementChild?.getElementsByTagName('input')[0];
+        if (addedChoice) {
+            addedChoice.focus();
+            window.getSelection();
+        }
+    }, [lastQuestionIndex]);
 
     return (
         <div className="md:pl-5 order-first md:order-last flex-1">
@@ -30,7 +43,7 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
                 onChange={(e) => onTitleChange(e.target.value)}
                 className="border-b border-gray-500 text-gray-600 text-xl focus:outline-none focus:border-b border-dashed"
             />
-            <ul className="mt-5">
+            <ul className="mt-5" ref={ulRef}>
                 {question.choices.map((choice, index) => (
                     <ChoiceCard key={choice.id} choice={choice} index={index} />
                 ))}

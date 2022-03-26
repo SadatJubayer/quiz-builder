@@ -1,6 +1,7 @@
 import { strings } from 'constant/strings';
-import { useQuestion } from 'hooks';
-import ContentEditable from 'react-contenteditable';
+import { useQuestion, useQuizzes } from 'hooks';
+import { useQuizAdd } from 'hooks/useQuizAdd';
+import { KeyboardEvent, useRef } from 'react';
 import { IChoice } from 'types/IChoice';
 import { numberToLetter } from 'utils';
 
@@ -11,9 +12,25 @@ interface IChoiceCardProps {
 
 export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
     const { updateChoiceTitle, toggleAnswer } = useQuestion();
+    const { selectedQuestion } = useQuizzes();
+    const { addAChoice } = useQuizAdd();
+    const inputRef = useRef<HTMLInputElement>(null);
 
     const onTitleChange = (id: string, title: string) => {
         updateChoiceTitle(id, title);
+    };
+
+    const onInputFocus = () => {
+        inputRef.current?.select();
+    };
+
+    /* Adding new choice on Enter key press if the item is last */
+    const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Enter') {
+            if (selectedQuestion?.choices.length === index + 1) {
+                addAChoice();
+            }
+        }
     };
 
     return (
@@ -21,9 +38,12 @@ export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
             <p className="border bg-lightBg text-lightText px-2 py-1 rounded-sm text-center font-medium">
                 {numberToLetter(index + 1)}
             </p>
-            <ContentEditable
-                className="flex-1 text-sm focus:outline-none p-1 border-gray-400 focus:border-b border-dashed whitespace-pre-wrap"
-                html={choice.title}
+            <input
+                ref={inputRef}
+                onFocus={onInputFocus}
+                value={choice.title}
+                className="flex-1 text-sm focus:outline-none p-1 border-gray-400 focus:border-b border-dashed bg-transparent"
+                onKeyDown={handleKeyDown}
                 onChange={(e) => onTitleChange(choice.id, e.target.value)}
             />
             <input

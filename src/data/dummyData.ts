@@ -14,25 +14,25 @@ export const dummyData: IQuiz[] = [
                 imgUrl: '',
                 choices: [
                     {
-                        id: '11',
+                        id: '1',
                         imgUrl: '',
                         title: 'etcd',
                         correct: false,
                     },
                     {
-                        id: '12',
+                        id: '2',
                         imgUrl: '',
                         title: 'kubelet',
                         correct: true,
                     },
                     {
-                        id: '13',
+                        id: '3',
                         imgUrl: '',
                         title: 'scheduler',
                         correct: false,
                     },
                     {
-                        id: '14',
+                        id: '4',
                         imgUrl: '',
                         title: 'kubeadm',
                         correct: false,
@@ -45,25 +45,25 @@ export const dummyData: IQuiz[] = [
                 imgUrl: '',
                 choices: [
                     {
-                        id: '21',
+                        id: '1',
                         imgUrl: '',
                         title: 'etcd',
                         correct: false,
                     },
                     {
-                        id: '22',
+                        id: '2',
                         imgUrl: '',
                         title: 'helm',
                         correct: false,
                     },
                     {
-                        id: '23',
+                        id: '3',
                         imgUrl: '',
                         title: 'scheduler',
                         correct: true,
                     },
                     {
-                        id: '24',
+                        id: '4',
                         imgUrl: '',
                         title: 'kubectl',
                         correct: false,
@@ -84,25 +84,25 @@ export const dummyData: IQuiz[] = [
                 imgUrl: '',
                 choices: [
                     {
-                        id: '11',
+                        id: '1',
                         imgUrl: '',
                         title: 'Network Protocol',
                         correct: false,
                     },
                     {
-                        id: '12',
+                        id: '2',
                         imgUrl: '',
                         title: 'Markup Language',
                         correct: true,
                     },
                     {
-                        id: '13',
+                        id: '3',
                         imgUrl: '',
                         title: 'Programming Language',
                         correct: false,
                     },
                     {
-                        id: '14',
+                        id: '4',
                         imgUrl: '',
                         title: 'Scripting Language',
                         correct: false,
@@ -115,25 +115,25 @@ export const dummyData: IQuiz[] = [
                 imgUrl: '',
                 choices: [
                     {
-                        id: '21',
+                        id: '1',
                         imgUrl: '',
                         title: 'Compiler',
                         correct: false,
                     },
                     {
-                        id: '22',
+                        id: '2',
                         imgUrl: '',
                         title: 'Interpreter',
                         correct: false,
                     },
                     {
-                        id: '23',
+                        id: '3',
                         imgUrl: '',
                         title: 'Web Browser',
                         correct: true,
                     },
                     {
-                        id: '24',
+                        id: '4',
                         imgUrl: '',
                         title: 'Server',
                         correct: false,
@@ -146,25 +146,25 @@ export const dummyData: IQuiz[] = [
                 imgUrl: '',
                 choices: [
                     {
-                        id: '31',
+                        id: '1',
                         imgUrl: '',
                         title: '<break />',
                         correct: false,
                     },
                     {
-                        id: '32',
+                        id: '2',
                         imgUrl: '',
                         title: '<nbsp>',
                         correct: false,
                     },
                     {
-                        id: '33',
+                        id: '3',
                         imgUrl: '',
                         title: '<br />',
                         correct: true,
                     },
                     {
-                        id: '34',
+                        id: '4',
                         imgUrl: '',
                         title: '<lb />',
                         correct: false,
