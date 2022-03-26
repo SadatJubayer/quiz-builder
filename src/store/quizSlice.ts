@@ -46,6 +46,11 @@ const quizSlice = createSlice({
             state.data = updatedQuizzes;
         },
 
+        addQuiz(state, action: PayloadAction<IQuiz>) {
+            state.data.push(action.payload);
+            state.selectedQuiz = action.payload;
+        },
+
         addQuestion(state, action: PayloadAction<IQuestion>) {
             const updatedQuizzes = state.data.map((quiz) => {
                 if (quiz.id !== state.selectedQuiz?.id) return quiz;
@@ -89,4 +94,5 @@ export const {
     updateSelectedQuiz,
     addQuestion,
     addChoice,
+    addQuiz,
 } = quizSlice.actions;

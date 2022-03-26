@@ -6,7 +6,6 @@ import { useAppState } from './useAppState';
 
 export const useQuizzes = () => {
     const { data: quizzes, selectedQuestion, selectedQuiz } = useAppState((state) => state.quizzes);
-
     const dispatch = useAppDispatch();
 
     const getQuizById = (quizId: string): IQuiz | undefined => {
@@ -20,5 +19,12 @@ export const useQuizzes = () => {
         return dispatch(setSelectedQuestion(question));
     };
 
-    return { quizzes, selectedQuiz, selectedQuestion, selectQuiz, selectQuestion, getQuizById };
+    return {
+        quizzes,
+        selectedQuiz,
+        selectedQuestion,
+        selectQuiz,
+        selectQuestion,
+        getQuizById,
+    };
 };
