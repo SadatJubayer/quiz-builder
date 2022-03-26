@@ -8,7 +8,9 @@ export const AdminRouter = () => {
     return (
         <Routes>
             <Route path={appRoutes.ADMIN_DASHBOARD} element={<DashboardPage />} />
-            <Route path={appRoutes.CREATE_QUIZ} element={<CreateQUizPage />} />
+            <Route path={appRoutes.QUIZ_EDITOR}>
+                <Route path=":id" element={<CreateQUizPage />} />
+            </Route>
         </Routes>
     );
 };

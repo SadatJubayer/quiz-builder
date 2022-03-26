@@ -1,7 +1,7 @@
 export const appRoutes = {
     /* Admin routes */
     ADMIN_DASHBOARD: '/',
-    CREATE_QUIZ: '/new',
+    QUIZ_EDITOR: '/quiz',
     SHARE_QUIZ: '/crated',
 
     /* User routes */

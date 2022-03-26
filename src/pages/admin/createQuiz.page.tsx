@@ -1,5 +1,5 @@
-import React from 'react';
+import { Layout } from 'components';
 
 export const CreateQUizPage = () => {
-    return <div>CreateQUiz</div>;
+    return <Layout>Test page</Layout>;
 };

@@ -10,7 +10,7 @@ interface IQuizListCard {
 export const QuizListCard = ({ quiz }: IQuizListCard) => {
     return (
         <Link
-            to={appRoutes.CREATE_QUIZ}
+            to={`${appRoutes.QUIZ_EDITOR}/${quiz.id}`}
             className="bg-lightBg p-5 flex flex-col space-y-4 border border-gray-300 rounded"
         >
             <h2 className="text-lightText">{quiz.name}</h2>
