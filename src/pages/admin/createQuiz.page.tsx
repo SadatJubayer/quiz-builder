@@ -31,7 +31,7 @@ export const CreateQUizPage = () => {
         <Layout>
             <div className="max-w-3xl mx-auto">
                 <QuizHeader />
-                <div className="flex md:divide-x-2 mt-5 md:mt-10 flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0">
+                <div className="flex md:divide-x-2 mt-5 md:mt-10 flex-col md:flex-row md:space-x-5 space-y-5 md:space-y-0 pb-20 md:pb-32">
                     <QuestionListDnd />
                     {selectedQuestion && <EditQuestionCard question={selectedQuestion} />}
                 </div>

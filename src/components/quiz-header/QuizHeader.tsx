@@ -1,7 +1,6 @@
 import { strings } from 'constant/strings';
 import { useQuizEditor } from 'hooks';
 import { useQuizzes } from 'hooks/useQuizzes';
-import { useRef } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { Link } from 'react-router-dom';
 import { LayoutTypes } from 'types/ILayout';
@@ -9,8 +8,6 @@ import { LayoutTypes } from 'types/ILayout';
 export const QuizHeader = () => {
     const { selectedQuiz } = useQuizzes();
     const { updateQuizTitle, updateQuizLayout } = useQuizEditor();
-
-    const quizNameRef = useRef<HTMLDivElement>(null);
 
     const onChangeLayout = (layout: string) => {
         updateQuizLayout(+layout);
@@ -23,7 +20,6 @@ export const QuizHeader = () => {
     return (
         <div>
             <ContentEditable
-                innerRef={quizNameRef}
                 html={selectedQuiz?.name || ''}
                 onChange={(e) => onChangeName(e.target.value)}
                 className="focus:outline-none focus:border-b focus: border-dashed text-center text-lg font-semibold text-lightText border-primary"

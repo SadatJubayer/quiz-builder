@@ -6,6 +6,7 @@ import cn from 'classnames';
 import { strings } from 'constant/strings';
 import { useQuizAdd } from 'hooks/useQuizAdd';
 import { useQuizzes } from 'hooks/useQuizzes';
+import ContentEditable from 'react-contenteditable';
 import { IQuestion } from 'types/IQuestion';
 
 export const QuestionListDnd = () => {
@@ -31,7 +32,13 @@ export const QuestionListDnd = () => {
                         )}
                     >
                         <DragIcon />
-                        <p className="text-xs w-56 truncate">{question.title}</p>
+                        <ContentEditable
+                            className="text-xs w-56 truncate"
+                            html={question.title}
+                            disabled
+                            tagName="p"
+                            onChange={() => null}
+                        />
                     </li>
                 ))}
                 <button
