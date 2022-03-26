@@ -8,4 +8,7 @@ export const appRoutes = {
     USER_HOME: '/user',
     VIEW_QUIZ: '/view',
     RESULT: '/result',
+
+    /* Others */
+    NOT_FOUND: '/404',
 };

@@ -1,5 +1,4 @@
 import { strings } from 'constant/strings';
-import React from 'react';
 import { Link } from 'react-router-dom';
 
 export const Navbar = () => {

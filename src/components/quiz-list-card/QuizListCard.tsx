@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { appRoutes } from 'constant';
 import { strings } from 'constant/strings';
 import { Link } from 'react-router-dom';
@@ -16,9 +17,11 @@ export const QuizListCard = ({ quiz }: IQuizListCard) => {
             <h2 className="text-lightText">{quiz.name}</h2>
             <div className="text-xs flex items-center justify-between">
                 <p
-                    className={`${
-                        quiz.isPublished ? 'bg-primary' : 'bg-orange-400'
-                    } text-white px-2 py-0.5 rounded`}
+                    className={cn(
+                        'text-white px-2 py-0.5 rounded',
+                        { 'bg-green-600': quiz?.isPublished },
+                        { 'bg-orange-800': !quiz?.isPublished }
+                    )}
                 >
                     {quiz.isPublished ? strings.published : strings.draft}
                 </p>

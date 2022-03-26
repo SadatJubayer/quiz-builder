@@ -13,7 +13,7 @@ export default function App() {
         /* Simulating delay for loading spinner */
         const timeOutId = setTimeout(() => {
             dispatch(initWithDummyData(dummyData));
-        }, 2000);
+        }, 500);
         return () => {
             clearTimeout(timeOutId);
         };
