@@ -1,4 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { IChoice } from 'types/IChoice';
 import { IQuestion } from 'types/IQuestion';
 import { IQuiz } from 'types/IQuiz';
 
@@ -35,6 +36,7 @@ const quizSlice = createSlice({
             state.selectedQuiz = undefined;
             state.selectedQuestion = undefined;
         },
+
         updateSelectedQuiz(state, action: PayloadAction<IQuiz>) {
             const updatedQuizzes = state.data.map((quiz) => {
                 if (quiz.id !== state.selectedQuiz?.id) return quiz;
@@ -43,6 +45,34 @@ const quizSlice = createSlice({
             });
             state.data = updatedQuizzes;
         },
+
+        addQuestion(state, action: PayloadAction<IQuestion>) {
+            const updatedQuizzes = state.data.map((quiz) => {
+                if (quiz.id !== state.selectedQuiz?.id) return quiz;
+                quiz.questions.push(action.payload);
+                /* Update selected quiz */
+                state.selectedQuiz?.questions.push(action.payload);
+                state.selectedQuestion = action.payload;
+                return quiz;
+            });
+            state.data = updatedQuizzes;
+        },
+
+        addChoice(state, action: PayloadAction<IChoice>) {
+            const updatedQuizzes = state.data.map((quiz) => {
+                if (quiz.id !== state.selectedQuiz?.id) return quiz;
+                quiz.questions.map((question) => {
+                    if (question.id !== state.selectedQuestion?.id) return question;
+                    question.choices.push(action.payload);
+                    state.selectedQuestion = question;
+                    return question;
+                });
+                state.selectedQuiz = quiz;
+                return quiz;
+            });
+            state.data = updatedQuizzes;
+        },
+
         resetAll() {
             return initialState;
         },
@@ -57,4 +87,6 @@ export const {
     deSelectQuiz,
     resetAll,
     updateSelectedQuiz,
+    addQuestion,
+    addChoice,
 } = quizSlice.actions;
