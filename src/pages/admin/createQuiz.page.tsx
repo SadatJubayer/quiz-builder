@@ -11,7 +11,7 @@ type QuizParams = {
 export const CreateQUizPage = () => {
     const { id } = useParams<QuizParams>();
     const navigate = useNavigate();
-    const { selectedQuiz, selectedQuestion, getQuizById, selectQuiz } = useQuizzes();
+    const { selectedQuestion, getQuizById, selectQuiz } = useQuizzes();
 
     const toFourOhFour = () => {
         navigate(appRoutes.NOT_FOUND);
@@ -26,8 +26,6 @@ export const CreateQUizPage = () => {
             toFourOhFour();
         }
     }, [id]); // eslint-disable-line react-hooks/exhaustive-deps
-
-    console.log(selectedQuiz);
 
     return (
         <Layout>

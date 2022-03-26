@@ -1,6 +1,7 @@
 import cn from 'classnames';
 import { appRoutes } from 'constant';
 import { strings } from 'constant/strings';
+import ContentEditable from 'react-contenteditable';
 import { Link } from 'react-router-dom';
 import { IQuiz } from 'types/IQuiz';
 
@@ -14,7 +15,12 @@ export const QuizListCard = ({ quiz }: IQuizListCard) => {
             to={`${appRoutes.QUIZ_EDITOR}/${quiz.id}`}
             className="bg-lightBg p-5 flex flex-col space-y-4 border border-gray-300 rounded"
         >
-            <h2 className="text-lightText">{quiz.name}</h2>
+            <ContentEditable
+                className="text-lightText"
+                html={quiz.name}
+                disabled
+                onChange={() => null}
+            />
             <div className="text-xs flex items-center justify-between">
                 <p
                     className={cn(

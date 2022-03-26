@@ -35,6 +35,14 @@ const quizSlice = createSlice({
             state.selectedQuiz = undefined;
             state.selectedQuestion = undefined;
         },
+        updateSelectedQuiz(state, action: PayloadAction<IQuiz>) {
+            const updatedQuizzes = state.data.map((quiz) => {
+                if (quiz.id !== state.selectedQuiz?.id) return quiz;
+                state.selectedQuiz = action.payload;
+                return action.payload;
+            });
+            state.data = updatedQuizzes;
+        },
         resetAll() {
             return initialState;
         },
@@ -42,5 +50,11 @@ const quizSlice = createSlice({
 });
 
 export default quizSlice.reducer;
-export const { initWithDummyData, setSelectedQuiz, setSelectedQuestion, deSelectQuiz, resetAll } =
-    quizSlice.actions;
+export const {
+    initWithDummyData,
+    setSelectedQuiz,
+    setSelectedQuestion,
+    deSelectQuiz,
+    resetAll,
+    updateSelectedQuiz,
+} = quizSlice.actions;

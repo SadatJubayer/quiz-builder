@@ -14,9 +14,9 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
             </h3>
             <ul className="mt-5">
                 {question.choices.map((choice, index) => (
-                    <ChoiceCard choice={choice} index={index} />
+                    <ChoiceCard key={choice.id} choice={choice} index={index} />
                 ))}
-                <button className="border border-primary px-3 py-1 rounded hover:text-primary">
+                <button className="border border-primary px-3 py-1 rounded hover:text-primary text-sm text-gray-700">
                     {strings.add_option}
                 </button>
             </ul>

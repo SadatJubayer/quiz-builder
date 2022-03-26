@@ -19,6 +19,7 @@ export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
                 type="checkbox"
                 title={strings.make_it_correct}
                 checked={choice.correct}
+                onChange={() => null}
             />
         </li>
     );

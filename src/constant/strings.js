@@ -14,6 +14,7 @@ export const strings = {
     multiple_layout: 'All in one page',
     make_it_correct: 'Check to set it as a correct answer',
     add_option: 'Add another option',
+    add_question: 'Add another question',
     save: 'Save',
     mark_as: 'Mark as',
 
