@@ -15,6 +15,18 @@
 
 ## 📷 ScreenShoot (s)
 
+-   Quiz list
+
+![Quiz list](/public/screenShoots/quiz-list.png)
+
+-   Quiz Editor
+
+![Quiz editor](/public/screenShoots/editor.png)
+
+-   Quiz viewer
+
+![Quiz viewer](/public/screenShoots/answer.png)
+
 ## 👨‍💻 Installation and Setup Instructions
 
 To run locally you will need to clone down this repository. You will need `node` and `npm` or `yarn` installed globally on your machine.
@@ -81,7 +93,7 @@ This is a bare React project created with [CRA - Create React App](https://creat
 -   📁 `src`: Contains the application's actual JavaScript + React front-end.
     -   📄 `src/assets/*`: Store all static images, icons, vectors, etc.
     -   📄 `src/components/*`: All reusable and small components are here.
-    -   📄 `src/constants/*`: All App constants are there.
+    -   📄 `src/constants/*`: All App constants are there. All app strings are the `strings.js` file for changing those easily & implementing i18n.
     -   📄 `src/data/*`: Static data used around the application.
     -   📄 `src/hooks/*`: This contains all the custom hooks for the application. Most of the hooks are the wrapper of the redux-toolkit hooks.
     -   📄 `src/pages/*`: All the app pages are defined here with route names. Used React Router v6 for routing.
