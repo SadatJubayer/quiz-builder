@@ -1,46 +1,116 @@
-# Getting Started with Create React App
+<h2 align="center" >Quiz Builder</h2>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> A quiz builder application build with React, TypeScript, Redux, Tailwind, ReactDnD etc. This project has the following features -
 
-## Available Scripts
+1. It has two views—the `Admin view` for creating a quiz and the `User view` for answering a quiz.
+2. Creating a quiz with multiple questions.
+3. Questions can have multiple correct answers.
+4. Adding a title and optionally an image on each question.
+5. Two types of layout: 1. All questions on one page and 2. Single question per page.
+6. Ordering questions by Drag and Drop.
+7. Answering quiz with two types of layouts.
+8. Showing score after finishing the quiz.
+9. Mobile-friendly responsive design.
+10. Stores quizzes on the LocalStorage.
 
-In the project directory, you can run:
+## 📷 ScreenShoot (s)
 
-### `npm start`
+## 👨‍💻 Installation and Setup Instructions
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+To run locally you will need to clone down this repository. You will need `node` and `npm` or `yarn` installed globally on your machine.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Install the dependencies
 
-### `npm test`
+```shell
+yarn
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+To run the project locally
 
-### `npm run build`
+```shell
+yarn start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run eslint and prettier checks
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```shell
+yarn lint
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To fix eslint and prettier issues silently
 
-### `npm run eject`
+```shell
+yarn lint:fix
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+<details>
+  <summary> Commands with npm</summary>
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Install the dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+```shell
+npm install
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+To run project locally
 
-## Learn More
+```shell
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+To run eslint and prettier checks
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```shell
+npm run lint
+```
+
+To fix eslint and prettier issues silently
+
+```shell
+npm run lint:fix
+```
+
+</details>
+
+## Project structure
+
+This is a bare React project created with [CRA - Create React App](https://create-react-app.dev/).
+
+---
+
+-   📁 `src`: Contains the application's actual JavaScript + React front-end.
+    -   📄 `src/assets/*`: Store all static images, icons, vectors, etc.
+    -   📄 `src/components/*`: All reusable and small components are here.
+    -   📄 `src/constants/*`: All App constants are there.
+    -   📄 `src/data/*`: Static data used around the application.
+    -   📄 `src/hooks/*`: This contains all the custom hooks for the application. Most of the hooks are the wrapper of the redux-toolkit hooks.
+    -   📄 `src/pages/*`: All the app pages are defined here with route names. Used React Router v6 for routing.
+    -   📄 `src/store/*`: For managing the global state, I have used Redux. Why do I need global state management like redux? Because - it ensures a **single source of truth** for the whole app state. This folder contains the redux data (reducers, slices). Used `Redux Toolkit` which is a redux wrapper.
+    -   📄 `src/styles/*`: The app is configured for using TailwindCSS. Tailwind global styles are here.
+    -   📄 `src/utils/*`: Utilities and helper functions are here.
+
+---
+
+-   📄 `babel.config.js`: Adds the babel configuration for the project that maintains the compilation of the codes.
+
+-   📄 `.prettierrc.js`: Adds the Prettier configuration for the project.
+
+-   📄 `.eslintrc.js`: Adds the Eslint configuration for the project.
+
+-   📄 `tailwind.config.js`: Tailwind configuration file with some custom properties.
+
+## 👌 Improvements
+
+I developed this project in a very short time. I couldn't develop all the ideas in my mind. Things I consider to add to make it better -
+
+1. URL on option: Adding image URL on the options like the questions.
+
+2. Global error handler: To catch unwanted errors, add a global error handler. My choice is `React ErrorBoundary Component` or [react-error-boundary](https://www.npmjs.com/package/react-error-boundary?activeTab=dependencies) package.
+
+3. Git Hooks: Pre-commit hooks can be added to check esLint errors, prettier errors, tests, and build errors. `lint-staged` & `husky` would be a good combination for this.
+
+4. Testing: Writing some test cases to test the components with the unit test and integration test.
+
+## Author
+
+-   [@SadatJubayer](https://www.smjubayer.me)
