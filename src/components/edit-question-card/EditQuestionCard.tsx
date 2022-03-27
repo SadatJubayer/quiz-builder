@@ -54,7 +54,12 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
             </div>
             <ul ref={ulRef}>
                 {question.choices.map((choice, index) => (
-                    <ChoiceCard key={choice.id} choice={choice} index={index} />
+                    <ChoiceCard
+                        totalChoices={question.choices.length}
+                        key={choice.id}
+                        choice={choice}
+                        index={index}
+                    />
                 ))}
             </ul>
             <button

@@ -1,7 +1,7 @@
 export const strings = {
     appName: '🤯 Q U I Z Builder',
 
-    /* Admin */
+    /* Admin & Users*/
     your_quizzes: 'Your Quizzes',
     create_new: 'Create new',
     import_dummy: 'Import some dummy quiz',
@@ -28,6 +28,7 @@ export const strings = {
     next_ques: 'Next Question',
     submit: 'Submit quiz',
     answering: 'Answering',
+    min_choice_alert: 'Minimum 2 choices are required',
 
     /* Not found page  */
     not_found: 'Page not found!',

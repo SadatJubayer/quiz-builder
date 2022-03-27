@@ -1,4 +1,4 @@
-import { updateSelectedQuiz } from 'store/quizSlice';
+import { updateSelectedQuestion, updateSelectedQuiz } from 'store/quizSlice';
 import { LayoutTypes } from 'types/ILayout';
 import { IQuestion } from 'types/IQuestion';
 import { IQuiz } from 'types/IQuiz';
@@ -30,6 +30,10 @@ export const useQuizEditor = () => {
         }
     };
 
+    const modifySelectedQues = (question: IQuestion) => {
+        dispatch(updateSelectedQuestion(question));
+    };
+
     const togglePublish = () => {
         if (selectedQuiz) {
             const quiz: IQuiz = { ...selectedQuiz, isPublished: !selectedQuiz.isPublished };
@@ -37,5 +41,11 @@ export const useQuizEditor = () => {
         }
     };
 
-    return { updateQuizTitle, updateQuizLayout, togglePublish, updateQuizQuestions };
+    return {
+        updateQuizTitle,
+        updateQuizLayout,
+        togglePublish,
+        updateQuizQuestions,
+        modifySelectedQues,
+    };
 };

@@ -1,20 +1,24 @@
+import { RemoveIcon } from 'assets/icons';
 import { strings } from 'constant/strings';
-import { useQuestion, useQuizzes } from 'hooks';
+import { useQuestion, useQuizRemover, useQuizzes } from 'hooks';
 import { useQuizAdd } from 'hooks/useQuizAdd';
 import { KeyboardEvent, useRef } from 'react';
+import { toast } from 'react-toastify';
 import { IChoice } from 'types/IChoice';
 import { numberToLetter } from 'utils';
 
 interface IChoiceCardProps {
     index: number;
+    totalChoices: number;
     choice: IChoice;
 }
 
-export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
+export const ChoiceCard = ({ index, choice, totalChoices }: IChoiceCardProps) => {
     const { updateChoiceTitle, toggleAnswer } = useQuestion();
     const { selectedQuestion } = useQuizzes();
     const { addAChoice } = useQuizAdd();
     const inputRef = useRef<HTMLInputElement>(null);
+    const { removeChoiceById } = useQuizRemover();
 
     const onTitleChange = (id: string, title: string) => {
         updateChoiceTitle(id, title);
@@ -22,6 +26,14 @@ export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
 
     const onInputFocus = () => {
         inputRef.current?.select();
+    };
+
+    const removeChoice = () => {
+        if (totalChoices < 3)
+            return toast.error(strings.min_choice_alert, {
+                position: 'bottom-center',
+            });
+        removeChoiceById(choice.id);
     };
 
     /* Adding new choice on Enter key press if the item is last */
@@ -53,6 +65,9 @@ export const ChoiceCard = ({ index, choice }: IChoiceCardProps) => {
                 checked={choice.correct}
                 onChange={() => toggleAnswer(choice.id)}
             />
+            <button onClick={removeChoice}>
+                <RemoveIcon />
+            </button>
         </li>
     );
 };
