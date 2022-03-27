@@ -44,7 +44,7 @@ export const AnswerPage = () => {
                         <AnswerAllIOne quiz={selectedQuizForAns} />
                     )}
                     {selectedQuizForAns.layout === LayoutTypes.singlePage && (
-                        <AnswerSinglePerPage />
+                        <AnswerSinglePerPage quiz={selectedQuizForAns} />
                     )}
                 </div>
             )}

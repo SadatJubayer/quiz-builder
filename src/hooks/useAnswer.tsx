@@ -1,4 +1,4 @@
-import { setQuizForAnswer, updateQuestionForAns } from 'store/answerSlice';
+import { setQuestionForAnswer, setQuizForAnswer, updateQuestionForAns } from 'store/answerSlice';
 import { IQuestion } from 'types/IQuestion';
 import { IQuiz } from 'types/IQuiz';
 import { IResult } from 'types/IResult';
@@ -9,9 +9,14 @@ import { useAppState } from './useAppState';
 export const useAnswer = () => {
     const dispatch = useAppDispatch();
     const selectedQuizForAns = useAppState((state) => state.answer.selectedQuizForAns);
+    const selectedQuestionForAns = useAppState((state) => state.answer.selectedQuestionForAns);
 
     const selectAQuizForAns = (quiz: IQuiz) => {
         dispatch(setQuizForAnswer(quiz));
+    };
+
+    const selectAQuestionForAns = (question: IQuestion) => {
+        dispatch(setQuestionForAnswer(question));
     };
 
     const toggleChoiceById = (question: IQuestion, choiceId: string) => {
@@ -29,5 +34,12 @@ export const useAnswer = () => {
         return { total, earned };
     };
 
-    return { selectedQuizForAns, selectAQuizForAns, toggleChoiceById, getPoints };
+    return {
+        selectedQuizForAns,
+        selectAQuizForAns,
+        toggleChoiceById,
+        getPoints,
+        selectAQuestionForAns,
+        selectedQuestionForAns,
+    };
 };

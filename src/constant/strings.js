@@ -23,6 +23,9 @@ export const strings = {
     ou_of: 'Out of',
     thank_you: 'Thank You',
     congrats: 'Congratulations',
+    prev_ques: 'Previous Question',
+    next_ques: 'Next Question',
+    submit: 'Submit quiz',
 
     /* Not found page  */
     not_found: 'Page not found!',
