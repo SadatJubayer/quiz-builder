@@ -1,9 +1,10 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 
-import { DragIcon } from 'assets/icons';
+import { DragIcon, RemoveIcon } from 'assets/icons';
 import cn from 'classnames';
 import { dndTypes } from 'constant/dndTypes';
+import { useQuizRemover } from 'hooks';
 import { useQuizzes } from 'hooks/useQuizzes';
 import ContentEditable from 'react-contenteditable';
 import { useDrag, useDrop } from 'react-dnd';
@@ -15,6 +16,7 @@ interface ListItemProps {
 }
 export const ListItem = ({ question, swapQuestions }: ListItemProps) => {
     const { selectedQuestion, selectQuestion } = useQuizzes();
+    const { removeQuestionById } = useQuizRemover();
 
     const onQuestionClick = (selected: IQuestion) => {
         selectQuestion(selected);
@@ -71,6 +73,14 @@ export const ListItem = ({ question, swapQuestions }: ListItemProps) => {
                     tagName="p"
                     onChange={() => null}
                 />
+                <button
+                    onClick={(e) => {
+                        removeQuestionById(question.id);
+                        e.stopPropagation();
+                    }}
+                >
+                    <RemoveIcon />
+                </button>
             </li>
         </div>
     );
