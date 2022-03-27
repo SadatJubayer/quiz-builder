@@ -1,45 +1,51 @@
-/* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
-
-import { DragIcon } from 'assets/icons';
-import cn from 'classnames';
+import { dndTypes } from 'constant/dndTypes';
 import { strings } from 'constant/strings';
+import { useQuizEditor } from 'hooks';
 import { useQuizAdd } from 'hooks/useQuizAdd';
 import { useQuizzes } from 'hooks/useQuizzes';
-import ContentEditable from 'react-contenteditable';
+import { useCallback, useEffect, useState } from 'react';
+import { useDrop } from 'react-dnd';
 import { IQuestion } from 'types/IQuestion';
+import { ListItem } from './ListItem';
 
 export const QuestionListDnd = () => {
-    const { selectedQuiz, selectedQuestion, selectQuestion } = useQuizzes();
+    const { selectedQuiz } = useQuizzes();
+    const { updateQuizQuestions } = useQuizEditor();
+    const [sortedQuestions, setSortedQuestions] = useState<IQuestion[]>([]);
     const { addAQuestion } = useQuizAdd();
 
-    const onQuestionClick = (question: IQuestion) => {
-        selectQuestion(question);
-    };
+    /* DnD drop zone */
+    const [, drop] = useDrop(() => ({ accept: dndTypes.QUES_CARD }));
+
+    const swapQuestions = useCallback(
+        (fromIndex: number, toIndex: number) => {
+            const movedItem = selectedQuiz?.questions.find((ques) => ques.id === fromIndex);
+            const remainingItems = selectedQuiz?.questions.filter((ques) => ques.id !== fromIndex);
+            if (remainingItems && movedItem) {
+                const reorderedItems = [
+                    ...remainingItems.slice(0, toIndex),
+                    movedItem,
+                    ...remainingItems.slice(toIndex),
+                ];
+                setSortedQuestions(reorderedItems);
+                updateQuizQuestions(reorderedItems);
+            }
+        },
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+        [selectedQuiz?.questions]
+    );
+
+    useEffect(() => {
+        if (selectedQuiz?.questions) {
+            setSortedQuestions(selectedQuiz.questions);
+        }
+    }, [selectedQuiz]);
 
     return (
-        <div>
+        <div ref={drop}>
             <ul className="[min-width:200px] mt-5 md:mt-0">
-                {selectedQuiz?.questions.map((question) => (
-                    <li
-                        key={question.id}
-                        onClick={() => onQuestionClick(question)}
-                        className={cn(
-                            'flex items-center p-2 mb-2 space-x-2 border border-gray-200 cursor-pointer rounded',
-                            {
-                                'border-b-2 border-b-primary': question.id === selectedQuestion?.id,
-                            }
-                        )}
-                    >
-                        <DragIcon />
-                        <ContentEditable
-                            className="text-xs w-56 truncate"
-                            html={question.title}
-                            disabled
-                            tagName="p"
-                            onChange={() => null}
-                        />
-                    </li>
+                {sortedQuestions.map((question) => (
+                    <ListItem key={question.id} swapQuestions={swapQuestions} question={question} />
                 ))}
                 <button
                     onClick={addAQuestion}

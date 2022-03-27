@@ -90,7 +90,6 @@ const quizSlice = createSlice({
             });
             state.data = updatedQuizzes;
         },
-
         resetAll() {
             return initialState;
         },

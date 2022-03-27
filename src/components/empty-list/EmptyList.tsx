@@ -4,7 +4,7 @@ import { strings } from 'constant/strings';
 import { dummyData } from 'data/dummyData';
 import { useAppDispatch } from 'hooks';
 import { useQuizAdd } from 'hooks/useQuizAdd';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { importDummyData } from 'store/quizSlice';
 
 export const EmptyList = () => {
@@ -12,14 +12,22 @@ export const EmptyList = () => {
     const dispatch = useAppDispatch();
     const [isImporting, setIsImporting] = useState(false);
 
+    let timeOutId: NodeJS.Timeout;
+
     const onImport = () => {
         setIsImporting(true);
         /* Simulating delay for a loading state */
-        setTimeout(() => {
+        timeOutId = setTimeout(() => {
             dispatch(importDummyData(dummyData));
             setIsImporting(false);
-        }, 2000);
+        }, 1000);
     };
+
+    useEffect(() => {
+        return () => {
+            clearTimeout(timeOutId);
+        };
+    }, []); // eslint-disable-line
 
     return (
         <div className="flex flex-col justify-center items-center py-16 lg:py-32 space-y-6">
