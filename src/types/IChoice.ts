@@ -3,4 +3,5 @@ export interface IChoice {
     title: string;
     imgUrl?: string;
     correct: boolean;
+    selected?: boolean;
 }

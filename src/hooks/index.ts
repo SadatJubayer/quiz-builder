@@ -1,3 +1,4 @@
+export { useAnswer } from './useAnswer';
 export { useAppDispatch } from './useAppDispatch';
 export { useAppState } from './useAppState';
 export { useQuestion } from './useQuestion';

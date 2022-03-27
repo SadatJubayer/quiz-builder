@@ -18,6 +18,11 @@ export const strings = {
     save: 'Save',
     mark_as: 'Mark as',
     point: 'Point',
+    points: 'points',
+    you_got: 'You got',
+    ou_of: 'Out of',
+    thank_you: 'Thank You',
+    congrats: 'Congratulations',
 
     /* Not found page  */
     not_found: 'Page not found!',

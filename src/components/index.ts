@@ -1,4 +1,8 @@
 export { QuizHeader } from 'components/quiz-header/QuizHeader';
+export { AnswerAllIOne } from './answer-all-in-one/AnswerAllIOne';
+export { AnswerCard } from './answer-card/AnswerCard';
+export { AnswerHeader } from './answer-header/AnswerHeader';
+export { AnswerSinglePerPage } from './answer-single-per-page/AnswerSinglePerPage';
 export { EditQuestionCard } from './edit-question-card/EditQuestionCard';
 export { EmptyList } from './empty-list/EmptyList';
 export { Layout } from './layout/Layout';
@@ -7,5 +11,6 @@ export { QuestionListDnd } from './question-list-dnd/QuestionListDnd';
 export { QuizFooter } from './quiz-footer/QuizFooter';
 export { QuizListCard } from './quiz-list-card/QuizListCard';
 export { QuizList } from './quiz-list/QuizList';
+export { ResultCard } from './result-card/ResultCard';
 export { Button } from './shared/button/Button';
 export { Spinner } from './spinner/Spinner';

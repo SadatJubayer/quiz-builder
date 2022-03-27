@@ -6,7 +6,7 @@ export const appRoutes = {
 
     /* User routes */
     USER_HOME: '/user',
-    VIEW_QUIZ: '/view',
+    ANSWER_QUIZ: '/view',
     RESULT: '/result',
 
     /* Others */

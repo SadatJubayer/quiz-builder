@@ -116,7 +116,7 @@ export const dummyData: IQuiz[] = [
                 id: 2,
                 title: 'HTML are web pages read and rendered by -',
                 imgUrl: '',
-                point: 5,
+                point: 20,
                 choices: [
                     {
                         id: '1',
@@ -173,6 +173,12 @@ export const dummyData: IQuiz[] = [
                         imgUrl: '',
                         title: '<lb />',
                         correct: false,
+                    },
+                    {
+                        id: '5',
+                        imgUrl: '',
+                        title: '<br />',
+                        correct: true,
                     },
                 ],
             },

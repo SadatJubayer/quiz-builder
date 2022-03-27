@@ -1,14 +1,17 @@
 import { Navbar } from './Navbar';
 
 interface ILayoutProps {
+    user?: boolean;
     children: React.ReactNode;
 }
 
-export const Layout = (props: ILayoutProps) => {
+export const Layout = ({ user = false, children }: ILayoutProps) => {
+    const link = user ? '' : '/';
+
     return (
         <div className="bg-bg min-h-screen">
-            <Navbar />
-            <main className="p-3 md:p-5">{props.children}</main>
+            <Navbar to={link} />
+            <main className="p-3 md:p-5">{children}</main>
         </div>
     );
 };

@@ -1,6 +1,10 @@
-/* covert numbers to letters, 1=A, 2=B, 3=C....  */
+/**
+ * @description covert numbers to letters, 1=A, 2=B, 3=C....
+ * @param number
+ * @returns String
+ */
 
-export const numberToLetter = (number: number) => {
+export const numberToLetter = (number: number): string => {
     const baseChar = 'A'.charCodeAt(0);
     let letters = '';
     do {
