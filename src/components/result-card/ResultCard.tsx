@@ -13,7 +13,7 @@ export const ResultCard = ({ result }: ResultCardProps) => {
                 <h1>{strings.you_got}</h1>
                 <h2 className="text-6xl text-gray-700 font-bold flex justify-center items-center space-x-1.5 uppercase">
                     <span className="text-primary">{result?.earned}</span>
-                    <span className="text-2xl font-light"> {strings.ou_of} </span>
+                    <span className="text-2xl font-light"> {strings.out_of} </span>
                     <span>{result?.total}</span>
                 </h2>
             </div>

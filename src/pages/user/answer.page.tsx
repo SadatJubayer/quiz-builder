@@ -32,7 +32,7 @@ export const AnswerPage = () => {
     }, [id]); //eslint-disable-line react-hooks/exhaustive-deps
 
     return (
-        <Layout user>
+        <Layout>
             {selectedQuizForAns && (
                 <div className="max-w-2xl mx-auto p-2.5 md:p-5">
                     <AnswerHeader

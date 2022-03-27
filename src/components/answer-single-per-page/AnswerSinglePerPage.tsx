@@ -50,9 +50,10 @@ export const AnswerSinglePerPage = ({ quiz: { questions } }: IAnswerPageProps) =
 
     return (
         <div className="py-2.5">
-            <h1>
-                {questionIndex + 1}/{questions.length}
-            </h1>
+            <h4 className="text-sm py-1 text-text">
+                {strings.answering} <b>{questionIndex + 1} </b>
+                {strings.out_of.toLocaleLowerCase()} <b>{questions.length}</b>
+            </h4>
             <div className="[min-height:200px]">
                 {selectedQuestionForAns && <AnswerCard question={selectedQuestionForAns} />}
             </div>

@@ -31,7 +31,7 @@ export const ResultPage = () => {
     }
 
     return (
-        <Layout user>
+        <Layout>
             <ResultCard result={points} />
         </Layout>
     );

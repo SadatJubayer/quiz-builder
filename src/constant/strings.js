@@ -4,6 +4,7 @@ export const strings = {
     /* Admin */
     your_quizzes: 'Your Quizzes',
     create_new: 'Create new',
+    import_dummy: 'Import some dummy quiz',
     your_have_no_quiz: 'You don’t have any Quiz!',
     published: 'Published',
     draft: 'Draft',
@@ -20,12 +21,13 @@ export const strings = {
     point: 'Point',
     points: 'points',
     you_got: 'You got',
-    ou_of: 'Out of',
+    out_of: 'Out of',
     thank_you: 'Thank You',
     congrats: 'Congratulations',
     prev_ques: 'Previous Question',
     next_ques: 'Next Question',
     submit: 'Submit quiz',
+    answering: 'Answering',
 
     /* Not found page  */
     not_found: 'Page not found!',

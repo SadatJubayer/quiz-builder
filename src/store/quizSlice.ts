@@ -12,7 +12,7 @@ interface IQuizState {
 }
 
 const initialState: IQuizState = {
-    isLoading: true,
+    isLoading: false,
     data: [],
 };
 
@@ -20,8 +20,7 @@ const quizSlice = createSlice({
     name: 'quizzes',
     initialState,
     reducers: {
-        initWithDummyData(state, action: PayloadAction<IQuiz[]>) {
-            state.isLoading = false;
+        importDummyData(state, action: PayloadAction<IQuiz[]>) {
             state.data = action.payload;
         },
         setSelectedQuiz(state, action: PayloadAction<IQuiz>) {
@@ -100,7 +99,7 @@ const quizSlice = createSlice({
 
 export default quizSlice.reducer;
 export const {
-    initWithDummyData,
+    importDummyData,
     setSelectedQuiz,
     setSelectedQuestion,
     deSelectQuiz,
