@@ -67,6 +67,7 @@ const quizSlice = createSlice({
         addQuiz(state, action: PayloadAction<IQuiz>) {
             state.data.push(action.payload);
             state.selectedQuiz = action.payload;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
 
         addQuestion(state, action: PayloadAction<IQuestion>) {
