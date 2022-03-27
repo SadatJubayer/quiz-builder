@@ -13,6 +13,12 @@ export const useQuestion = () => {
             dispatch(updateSelectedQuestion(newQuestion));
         }
     };
+    const updateQuestionImgUrl = (imgUrl: string) => {
+        if (selectedQuestion) {
+            const newQuestion: IQuestion = { ...selectedQuestion, imgUrl };
+            dispatch(updateSelectedQuestion(newQuestion));
+        }
+    };
     const updateQuestionPoint = (point: number) => {
         if (selectedQuestion) {
             const newQuestion: IQuestion = { ...selectedQuestion, point };
@@ -42,5 +48,11 @@ export const useQuestion = () => {
         }
     };
 
-    return { updateQuestionTitle, updateChoiceTitle, updateQuestionPoint, toggleAnswer };
+    return {
+        updateQuestionTitle,
+        updateChoiceTitle,
+        updateQuestionPoint,
+        toggleAnswer,
+        updateQuestionImgUrl,
+    };
 };

@@ -1,8 +1,8 @@
-import { ChoiceCard } from 'components/choice-card/ChoiceCard';
+import { ChoiceCard, Input } from 'components';
 import { strings } from 'constant/strings';
 import { useQuestion } from 'hooks';
 import { useQuizAdd } from 'hooks/useQuizAdd';
-import { useEffect, useRef } from 'react';
+import { ChangeEvent, useEffect, useRef } from 'react';
 import ContentEditable from 'react-contenteditable';
 import { IQuestion } from 'types/IQuestion';
 
@@ -12,7 +12,7 @@ interface IEditQuestionCardProps {
 
 export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
     const { addAChoice } = useQuizAdd();
-    const { updateQuestionTitle, updateQuestionPoint } = useQuestion();
+    const { updateQuestionTitle, updateQuestionPoint, updateQuestionImgUrl } = useQuestion();
 
     const ulRef = useRef<HTMLUListElement>(null);
 
@@ -20,8 +20,8 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
         updateQuestionTitle(title);
     };
 
-    const onNewChoice = () => {
-        addAChoice();
+    const onChangeUrl = (e: ChangeEvent<HTMLInputElement>) => {
+        updateQuestionImgUrl(e.target.value);
     };
 
     /* Adding focus on choice while adding */
@@ -39,18 +39,27 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
             <ContentEditable
                 tagName="h3"
                 html={question.title}
-                placeholder="Question Title"
                 onChange={(e) => onTitleChange(e.target.value)}
                 className="border-b border-gray-500 text-gray-600 text-xl focus:outline-none focus:border-b border-dashed"
             />
-            <div className="py-2.5">
-                Point :
-                <input
-                    className="ml-2 bg-transparent w-20 border rounded focus:outline-none focus:border-gray-600 p-1"
-                    value={question.point}
-                    onChange={(e) => updateQuestionPoint(parseFloat(e.target.value))}
-                    type="number"
+
+            <div className="flex justify-between space-x-2.5 items-center">
+                <Input
+                    name="url"
+                    type="text"
+                    value={question.imgUrl}
+                    onChange={onChangeUrl}
+                    placeholder="Image URL (optional)"
                 />
+                <div className="flex items-center space-x-1">
+                    <span className="text-xs">Point :</span>
+                    <Input
+                        name="point"
+                        value={question.point}
+                        onChange={(e) => updateQuestionPoint(parseFloat(e.target.value))}
+                        type="number"
+                    />
+                </div>
             </div>
             <ul ref={ulRef}>
                 {question.choices.map((choice, index) => (
@@ -63,7 +72,7 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
                 ))}
             </ul>
             <button
-                onClick={onNewChoice}
+                onClick={addAChoice}
                 className="border border-primary px-3 py-1 rounded hover:text-primary text-sm text-gray-700"
             >
                 {strings.add_option}

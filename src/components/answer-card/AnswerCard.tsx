@@ -25,6 +25,15 @@ export const AnswerCard = ({ question }: IAnswerCardProps) => {
                     {strings.points}
                 </p>
             </div>
+            <div className="flex justify-center py-2.5">
+                {question.imgUrl && (
+                    <img
+                        className="image-contain rounded"
+                        src={question.imgUrl}
+                        alt={question.title}
+                    />
+                )}
+            </div>
             <div className="mt-2.5 flex flex-col space-y-2">
                 {question.choices.map((choice) => (
                     <label key={choice.id} className="p-1 text-sm flex justify-start items-center">

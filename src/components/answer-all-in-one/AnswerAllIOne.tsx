@@ -11,7 +11,7 @@ export const AnswerAllIOne = ({ quiz }: IAllInOneProps) => {
     return (
         <div>
             {quiz.questions.map((question) => (
-                <AnswerCard question={question} />
+                <AnswerCard key={question.id} question={question} />
             ))}
             <div className="flex justify-center py-5">
                 <LinkButton to={appRoutes.RESULT} text="Submit" />
