@@ -29,6 +29,8 @@ export const strings = {
     submit: 'Submit quiz',
     answering: 'Answering',
     min_choice_alert: 'Minimum 2 choices are required',
+    edit_quiz: 'Edit quiz',
+    take_quiz: 'Take quiz',
 
     /* Not found page  */
     not_found: 'Page not found!',

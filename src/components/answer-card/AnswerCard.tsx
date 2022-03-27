@@ -36,16 +36,17 @@ export const AnswerCard = ({ question }: IAnswerCardProps) => {
             </div>
             <div className="mt-2.5 flex flex-col space-y-2">
                 {question.choices.map((choice) => (
-                    <label key={choice.id} className="p-1 text-sm flex justify-start items-center">
+                    <label
+                        key={choice.id}
+                        className="cursor-pointer p-1 text-sm flex justify-start items-center"
+                    >
                         <input
                             checked={!!choice.selected}
                             onChange={() => onToggleAnswer(choice.id)}
                             className="mx-2 h-5 w-5"
                             type="checkbox"
                         />
-                        <span>
-                            {choice.title} {choice.correct && '✅'}
-                        </span>
+                        <span>{choice.title}</span>
                     </label>
                 ))}
             </div>

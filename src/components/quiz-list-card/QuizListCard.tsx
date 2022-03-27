@@ -38,13 +38,13 @@ export const QuizListCard = ({ quiz }: IQuizListCard) => {
                         className="text-blue-600 hover:underline"
                         to={`${appRoutes.QUIZ_EDITOR}/${quiz.id}`}
                     >
-                        Edit &#8594;
+                        {strings.edit_quiz} &#8594;
                     </Link>
                     <Link
                         className="text-blue-600 hover:underline"
                         to={`${appRoutes.ANSWER_QUIZ}/${quiz.id}`}
                     >
-                        View &#8594;
+                        {strings.take_quiz} &#8594;
                     </Link>
                 </div>
             </div>
