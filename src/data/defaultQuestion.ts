@@ -1,8 +1,10 @@
-export const getDefaultQuestion = (id: number) => {
+import { IQuestion } from 'types/IQuestion';
+export const getDefaultQuestion = (id: number): IQuestion => {
     return {
         id: id,
         title: `Untitled Question (${id})`,
         imgUrl: '',
+        point: 5,
         choices: [
             {
                 id: `${id}_1`,

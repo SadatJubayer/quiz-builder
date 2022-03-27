@@ -5,4 +5,5 @@ export interface IQuestion {
     title: string;
     imgUrl?: string;
     choices: IChoice[];
+    point: number;
 }

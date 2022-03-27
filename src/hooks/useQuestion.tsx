@@ -13,6 +13,12 @@ export const useQuestion = () => {
             dispatch(updateSelectedQuestion(newQuestion));
         }
     };
+    const updateQuestionPoint = (point: number) => {
+        if (selectedQuestion) {
+            const newQuestion: IQuestion = { ...selectedQuestion, point };
+            dispatch(updateSelectedQuestion(newQuestion));
+        }
+    };
 
     const updateChoiceTitle = (choiceId: string, title: string) => {
         if (selectedQuestion) {
@@ -36,5 +42,5 @@ export const useQuestion = () => {
         }
     };
 
-    return { updateQuestionTitle, updateChoiceTitle, toggleAnswer };
+    return { updateQuestionTitle, updateChoiceTitle, updateQuestionPoint, toggleAnswer };
 };

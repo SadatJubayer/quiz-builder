@@ -17,6 +17,7 @@ export const strings = {
     add_question: 'Add another question',
     save: 'Save',
     mark_as: 'Mark as',
+    point: 'Point',
 
     /* Not found page  */
     not_found: 'Page not found!',

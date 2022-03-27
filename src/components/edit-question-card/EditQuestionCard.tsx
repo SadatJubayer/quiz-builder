@@ -12,7 +12,7 @@ interface IEditQuestionCardProps {
 
 export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
     const { addAChoice } = useQuizAdd();
-    const { updateQuestionTitle } = useQuestion();
+    const { updateQuestionTitle, updateQuestionPoint } = useQuestion();
 
     const ulRef = useRef<HTMLUListElement>(null);
 
@@ -43,7 +43,16 @@ export const EditQuestionCard = ({ question }: IEditQuestionCardProps) => {
                 onChange={(e) => onTitleChange(e.target.value)}
                 className="border-b border-gray-500 text-gray-600 text-xl focus:outline-none focus:border-b border-dashed"
             />
-            <ul className="mt-5" ref={ulRef}>
+            <div className="py-2.5">
+                Point :
+                <input
+                    className="ml-2 bg-transparent w-20 border rounded focus:outline-none focus:border-gray-600 p-1"
+                    value={question.point}
+                    onChange={(e) => updateQuestionPoint(parseFloat(e.target.value))}
+                    type="number"
+                />
+            </div>
+            <ul ref={ulRef}>
                 {question.choices.map((choice, index) => (
                     <ChoiceCard key={choice.id} choice={choice} index={index} />
                 ))}

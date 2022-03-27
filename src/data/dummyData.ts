@@ -12,6 +12,7 @@ export const dummyData: IQuiz[] = [
                 id: 1,
                 title: 'Which service runs on each Kubernetes node and ensures containers are running in a pod?',
                 imgUrl: '',
+                point: 5,
                 choices: [
                     {
                         id: '1',
@@ -43,6 +44,7 @@ export const dummyData: IQuiz[] = [
                 id: 2,
                 title: 'Which component manages the assigning nodes to pods depending on resource availability?',
                 imgUrl: '',
+                point: 5,
                 choices: [
                     {
                         id: '1',
@@ -82,6 +84,7 @@ export const dummyData: IQuiz[] = [
                 id: 1,
                 title: 'What type of a language is HTML?',
                 imgUrl: '',
+                point: 5,
                 choices: [
                     {
                         id: '1',
@@ -113,6 +116,7 @@ export const dummyData: IQuiz[] = [
                 id: 2,
                 title: 'HTML are web pages read and rendered by -',
                 imgUrl: '',
+                point: 5,
                 choices: [
                     {
                         id: '1',
@@ -144,6 +148,7 @@ export const dummyData: IQuiz[] = [
                 id: 3,
                 title: 'What is the correct HTML tag for inserting a line break?',
                 imgUrl: '',
+                point: 5,
                 choices: [
                     {
                         id: '1',
