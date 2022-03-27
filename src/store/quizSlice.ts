@@ -2,6 +2,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IChoice } from 'types/IChoice';
 import { IQuestion } from 'types/IQuestion';
 import { IQuiz } from 'types/IQuiz';
+import { loadState, saveState } from 'utils/storage';
+import { localStorageKeys } from './../constant/localstorageKeys';
 
 /* Types */
 interface IQuizState {
@@ -13,7 +15,7 @@ interface IQuizState {
 
 const initialState: IQuizState = {
     isLoading: false,
-    data: [],
+    data: loadState(localStorageKeys.QUIZZES) || [],
 };
 
 const quizSlice = createSlice({
@@ -22,6 +24,7 @@ const quizSlice = createSlice({
     reducers: {
         importDummyData(state, action: PayloadAction<IQuiz[]>) {
             state.data = action.payload;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
         setSelectedQuiz(state, action: PayloadAction<IQuiz>) {
             state.selectedQuiz = action.payload;
@@ -43,6 +46,7 @@ const quizSlice = createSlice({
                 return action.payload;
             });
             state.data = updatedQuizzes;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
 
         updateSelectedQuestion(state, action: PayloadAction<IQuestion>) {
@@ -57,6 +61,7 @@ const quizSlice = createSlice({
                 return quiz;
             });
             state.data = updatedQuizzes;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
 
         addQuiz(state, action: PayloadAction<IQuiz>) {
@@ -74,6 +79,7 @@ const quizSlice = createSlice({
                 return quiz;
             });
             state.data = updatedQuizzes;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
 
         addChoice(state, action: PayloadAction<IChoice>) {
@@ -89,6 +95,7 @@ const quizSlice = createSlice({
                 return quiz;
             });
             state.data = updatedQuizzes;
+            saveState(localStorageKeys.QUIZZES, state.data);
         },
         resetAll() {
             return initialState;
